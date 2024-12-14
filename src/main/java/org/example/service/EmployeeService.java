@@ -27,7 +27,7 @@ public class EmployeeService {
 
     public EmployeeResponse createEmployee(EmployeeDTO employeeDTO) {
         Role role = new Role();
-        role.setName(Roles.valueOf(employeeDTO.getRole()));
+        role.setName(employeeDTO.getRole());
         role.setRoleId(Roles.valueOf(employeeDTO.getRole()).getId());
         roleRepository.save(role);
         Employee employee = new Employee();
