@@ -4,9 +4,8 @@ package org.example.dto;
 public class EmployeeDTO {
 
     String firstName;
-
-String surname;
-String role;
+    String surname;
+    String role;
 
     public String getFirstName() {
         return firstName;
