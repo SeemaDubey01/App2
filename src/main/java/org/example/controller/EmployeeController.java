@@ -29,25 +29,9 @@ public class EmployeeController {
     private static final List<String> VALID_ROLES = Arrays.asList("ADMIN", "USER", "MANAGER");
 
     @PostMapping
-    public ResponseEntity<Object> createEmployee(
-            @RequestHeader(value = "role", required = true) String role,  // Extract role from headers
+    public ResponseEntity<Object> createEmployee(  // Extract role from headers
             @RequestBody EmployeeDTO employee) {
-
-        // Validate role
-        if (role == null || role.trim().isEmpty()) {
-            return new ResponseEntity<>("Role cannot be null or empty.", HttpStatus.BAD_REQUEST);
-        }
-
-        if (role.length() < 3 || role.length() > 50) {
-            return new ResponseEntity<>("Role length must be between 3 and 50 characters.", HttpStatus.BAD_REQUEST);
-        }
-
-        if (!VALID_ROLES.contains(role.toUpperCase())) {
-            return new ResponseEntity<>("Invalid role. Valid roles are: ADMIN, USER, MANAGER.", HttpStatus.BAD_REQUEST);
-        }
-        employee.setRole(role);
         EmployeeResponse createdEmployee = employeeService.createEmployee(employee);
-
         return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
     }
 

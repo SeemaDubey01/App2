@@ -35,6 +35,8 @@ class EmployeeServiceTest {
 
     private EmployeeDTO employeeDTO;
     private Employee employee;
+
+    private Employee employee2;
     private Role role;
 
     @BeforeEach
@@ -43,17 +45,22 @@ class EmployeeServiceTest {
 
         // Initialize test data
         employeeDTO = new EmployeeDTO();
-        employeeDTO.setFirstName("John");
-        employeeDTO.setSurname("Doe");
-        employeeDTO.setRole("ADMIN");
+        employeeDTO.setName("John Star");
+        employeeDTO.setRoleId(1L);
 
         role = new Role();
-        role.setName(Roles.ADMIN);
+        role.setName("ADMIN");
 
         employee = new Employee();
         employee.setFirstName("John");
-        employee.setSurname("Doe");
+        employee.setSurname("Star");
         employee.setRole(role);
+
+        employee2 = new Employee();
+        employee2.setId(1L);
+        employee2.setFirstName("John");
+        employee2.setSurname("Star");
+        employee2.setRole(role);
     }
 
     @Test
@@ -67,9 +74,7 @@ class EmployeeServiceTest {
 
         // Assert the result
         assertNotNull(createdEmployee);
-        assertEquals("John", createdEmployee.getFirstName());
-        assertEquals("Doe", createdEmployee.getSurname());
-
+        assertEquals("John Star", createdEmployee.getName());
         // Verify interactions
         verify(roleRepository, times(1)).save(any(Role.class));
         verify(employeeRepository, times(1)).save(any(Employee.class));
@@ -85,8 +90,7 @@ class EmployeeServiceTest {
 
         // Assert the result
         assertNotNull(foundEmployee);
-        assertEquals("John", foundEmployee.getFirstName());
-        assertEquals("Doe", foundEmployee.getSurname());
+        assertEquals("John Star", foundEmployee.getName());
 
         // Verify interactions
         verify(employeeRepository, times(1)).findById(1L);
@@ -102,7 +106,7 @@ class EmployeeServiceTest {
             employeeService.getEmployeeById(1L);
         });
 
-        assertEquals("Employee not found", exception.getMessage());
+        assertEquals("Employee not found with id 1", exception.getMessage());
 
         // Verify interactions
         verify(employeeRepository, times(1)).findById(1L);
@@ -116,13 +120,14 @@ class EmployeeServiceTest {
 
         // Modify the employee object
         employee.setFirstName("Updated Name");
+        employee.setSurname("Star");
 
         // Call the method under test
         EmployeeResponse updatedEmployee = employeeService.updateEmployee(1L, employee);
 
         // Assert the result
         assertNotNull(updatedEmployee);
-        assertEquals("Updated Name", updatedEmployee.getFirstName());
+        assertEquals("Updated Name Star", updatedEmployee.getName());
 
         // Verify interactions
         verify(employeeRepository, times(1)).findById(1L);
@@ -139,7 +144,7 @@ class EmployeeServiceTest {
             employeeService.updateEmployee(1L, employee);
         });
 
-        assertEquals("Employee not found", exception.getMessage());
+        assertEquals("Employee not found with id 1", exception.getMessage());
 
         // Verify interactions
         verify(employeeRepository, times(1)).findById(1L);
@@ -148,6 +153,7 @@ class EmployeeServiceTest {
     @Test
     void testDeleteEmployee() {
         // Mock the behavior of employeeRepository
+        when(employeeRepository.findById(1L)).thenReturn(java.util.Optional.of(employee2));
         doNothing().when(employeeRepository).deleteById(1L);
 
         // Call the method under test

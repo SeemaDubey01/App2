@@ -2,15 +2,12 @@ package org.example.domainObjects;
 
 public class EmployeeResponse {
     private Long id;
-    private String firstName;
-    private String surname;
-
+    private String name;
     private Long roleId;
 
-    public EmployeeResponse(Long id, String firstName, String surname, Long roleId) {
+    public EmployeeResponse(Long id, String name, Long roleId) {
         this.id = id;
-        this.firstName = firstName;
-        this.surname = surname;
+        this.name = name;
         this.roleId = roleId;
     }
 
@@ -22,20 +19,12 @@ public class EmployeeResponse {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getRoleId() {

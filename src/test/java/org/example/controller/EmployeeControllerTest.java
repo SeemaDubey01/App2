@@ -37,16 +37,14 @@ class EmployeeControllerTest {
     @Test
     void testCreateEmployee() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setFirstName("Raj");
-        employeeDTO.setSurname("Malhotra");
-        employeeDTO.setRole("ADMIN");
+        employeeDTO.setName("Raj Malhotra");
+        employeeDTO.setRoleId(1L);
         Role role = new Role();
-        role.setName(Roles.ADMIN);
+        role.setName("ADMIN");
         role.setRoleId(1L);
         EmployeeResponse createdEmployee = new EmployeeResponse(
         1L,
-        "Raj",
-        "Malhotra",
+        "Raj Malhotra",
        1L);
 
 
@@ -55,19 +53,18 @@ class EmployeeControllerTest {
         mockMvc.perform(post("/api/employees")
                         .header("role", "ADMIN")
                         .contentType("application/json")
-                        .content("{\"firstName\":\"Raj\",\"surname\":\"Malhotra\"}"))
+                        .content("{\"name\":\"Raj Malhotra\"}"))
                 .andExpect(status().isCreated());
     }
 
     @Test
     void testGetEmployee() throws Exception {
         Role role = new Role();
-        role.setName(Roles.USER);
+        role.setName("USER");
         role.setRoleId(2L);
         EmployeeResponse employee = new EmployeeResponse(
         1L,
-       "Raj",
-        "Malhotra",
+       "Raj Malhotra",
         2L);
 
         when(employeeService.getEmployeeById(1L)).thenReturn(employee);
@@ -75,8 +72,7 @@ class EmployeeControllerTest {
         mockMvc.perform(get("/api/employees/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1))
-                .andExpect(jsonPath("$.firstName").value("Raj"))
-                .andExpect(jsonPath("$.surname").value("Malhotra"))
+                .andExpect(jsonPath("$.name").value("Raj Malhotra"))
         .andExpect(jsonPath("$.roleId").value(2));
 
         verify(employeeService, times(1)).getEmployeeById(1L);
@@ -86,23 +82,22 @@ class EmployeeControllerTest {
     void testUpdateEmployee() throws Exception {
 
         Role role = new Role();
-        role.setName(Roles.USER);
-        role.setId(2L);
+        role.setName("USER");
+        role.setRoleId(2L);
         Employee employee = new Employee();
         employee.setFirstName("Raj");
         employee.setSurname("Malhotra");
         employee.setRole(role);
         EmployeeResponse employeeResponse = new EmployeeResponse(
         1L,
-        "Raj",
-        "Malhotra",
+        "Raj Malhotra",
         2L);
 
         when(employeeService.updateEmployee(1L, employee)).thenReturn(employeeResponse);
 
         mockMvc.perform(put("/api/employees/1")
                         .contentType("application/json")
-                        .content("{\"firstName\":\"Raj\",\"surname\":\"Malhotra\"}"))
+                        .content("{\"name\":\"Raj Malhotra\"}"))
                 .andExpect(status().isOk());
     }
 

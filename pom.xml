@@ -11,6 +11,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>App2</artifactId>
+    <version>1.0</version>
     <description>Employee Management - App2</description>
 
 
@@ -84,9 +85,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <finalName>App2</finalName> <!-- Specify custom name without version -->
-                </configuration>
             </plugin>
         </plugins>
     </build>
