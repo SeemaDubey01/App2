@@ -1,39 +1,0 @@
-
-]	java:S1252"<This block of commented-out lines of code should be removed.(÷Îşşÿÿÿÿ8ç•«ß»2
-‘
-java:S1128"oRemove this unused import 'org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties'.(±“¿ûÿÿÿÿ8è•«ß»2
-‹
-java:S1128"nRemove this unused import 'org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties'.(ºå³ø8è•«ß»2
-‹
-java:S1128"iRemove this unused import 'org.springframework.boot.actuate.autoconfigure.web.server.ManagementPortType'.(÷Ï‡Õıÿÿÿÿ8è•«ß»2
-z
-java:S1128"XRemove this unused import 'org.springframework.boot.actuate.endpoint.ExposableEndpoint'.(¨È‹Øùÿÿÿÿ8è•«ß»2
-‚
-java:S1128"`Remove this unused import 'org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver'.(‘ä¦Ôÿÿÿÿÿ8é•«ß»2
-w
-java:S1128"ZRemove this unused import 'org.springframework.boot.actuate.endpoint.web.EndpointMapping'.(€‡¼¥8é•«ß»2
-y
-java:S1128	"]Remove this unused import 'org.springframework.boot.actuate.endpoint.web.EndpointMediaTypes'.(Ûà¦8é•«ß»2
-|
-java:S1128
-"_Remove this unused import 'org.springframework.boot.actuate.endpoint.web.ExposableWebEndpoint'.(ŸŸø8é•«ß»2
-
-java:S1128"_Remove this unused import 'org.springframework.boot.actuate.endpoint.web.WebEndpointsSupplier'.(Š¡•¥ÿÿÿÿÿ8ê•«ß»2
-
-java:S1128"qRemove this unused import 'org.springframework.boot.actuate.endpoint.web.annotation.ControllerEndpointsSupplier'.(öÖï8ê•«ß»2
-‹
-java:S1128"nRemove this unused import 'org.springframework.boot.actuate.endpoint.web.annotation.ServletEndpointsSupplier'.(”üŞ–8ê•«ß»2
-‘
-java:S1128"oRemove this unused import 'org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping'.(à§•ãÿÿÿÿÿ8ê•«ß»2
-b
-java:S1128"ERemove this unused import 'org.springframework.core.env.Environment'.(¹‡¨¹8ê•«ß»2
-]
-java:S1128"ARemove this unused import 'org.springframework.util.StringUtils'.(Ğôÿ8ë•«ß»2
-}
-java:S1128"[Remove this unused import 'org.springframework.web.servlet.config.annotation.EnableWebMvc'.(Â°Ä¡úÿÿÿÿ8ÏîÑ¶»2
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ë•«ß»2
-S
-java:S1128"1Remove this unused import 'java.util.Collection'.(¹ÉĞšùÿÿÿÿ8ë•«ß»2
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ë•«ß»2
